@@ -41,7 +41,7 @@ li {
 
 .strong#temperature {
   color: rgb(33, 33, 33);
-  font-size: 64px;
+  font-size: 2rem;
   font-weight: 100;
   line-height: 2;
 }

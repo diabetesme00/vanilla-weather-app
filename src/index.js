@@ -123,44 +123,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-axios
-    .get(root + "/data/2.5/forecast?" + apiParams + "&" + queryParams)
-    .then(function(response) {
-      document
-        .querySelectorAll(".day__block")
-        .forEach(function(element, index) {
-          let day = new Date(response.data.list[index].dt_txt);
-          element.querySelector(".day__block-date").innerHTML = friendlyDate(
-            day
-          );
-          element.querySelector(".day__block-temp").innerHTML = Math.round(
-            response.data.list[index].main.temp
-          );
-
-          element
-            .querySelector(".day__block-image")
-            .setAttribute(
-              "src",
-              "http://openweathermap.org/img/w/" +
-                response.data.list[index].weather[0].icon +
-                ".png"
-            );
-        });
-    });
-}
-
-form.addEventListener("submit", function(event) {
-  refreshWeather("q=" + form.querySelector("#weather__form-location").value);
-  event.preventDefault();
-});
-
-refreshBtn.addEventListener("click", function() {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    refreshWeather(
-      "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude
-    );
-  });
-});
-
 
 search("New York");

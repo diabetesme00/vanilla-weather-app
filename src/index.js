@@ -96,7 +96,7 @@ function displayCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
-}
+
 
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();

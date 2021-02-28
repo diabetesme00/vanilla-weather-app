@@ -30,7 +30,7 @@ li {
   padding: 15px;
   margin: 20px auto;
   border-radius: 10px;
-  max-width: 600px;
+  max-width: 650px;
 }
 
 .weather-icon {
@@ -39,11 +39,11 @@ li {
   margin-right: 10px;
 }
 
-.strong#temperature {
+.weather-temperature strong {
   color: rgb(33, 33, 33);
-  font-size: 2rem;
-  font-weight: 100;
-  line-height: 2;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
 }
 
 .units {

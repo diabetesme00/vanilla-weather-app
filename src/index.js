@@ -123,9 +123,21 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+axios
+    .get(root + "/data/2.5/forecast?" + apiParams + "&" + queryParams)
+    .then(function(response) {
+      document
+        .querySelectorAll(".day__block")
+        .forEach(function(element, index) {
+          let day = new Date(response.data.list[index].dt_txt);
+          element.querySelector(".day__block-date").innerHTML = friendlyDate(
+            day
+          );
+          element.querySelector(".day__block-temp").innerHTML = Math.round(
+            response.data.list[index].main.temp
+          );
 
-
-  element
+          element
             .querySelector(".day__block-image")
             .setAttribute(
               "src",

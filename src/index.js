@@ -89,6 +89,21 @@ function search(city) {
   axios.get(apiUrl).then(dispalyForecast);
 }
 
+      function showPosition(position) {
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = `Your Latitude is ${
+          position.coords.latitude
+        } and your longitude is ${position.coords.longitude}`;
+      }
+
+      function getCurrentPosition() {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+
+      let button = document.querySelector("button");
+      button.addEventListener("click", getCurrentPosition);
+
+
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");

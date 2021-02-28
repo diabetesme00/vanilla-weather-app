@@ -124,4 +124,31 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
+
+  element
+            .querySelector(".day__block-image")
+            .setAttribute(
+              "src",
+              "http://openweathermap.org/img/w/" +
+                response.data.list[index].weather[0].icon +
+                ".png"
+            );
+        });
+    });
+}
+
+form.addEventListener("submit", function(event) {
+  refreshWeather("q=" + form.querySelector("#weather__form-location").value);
+  event.preventDefault();
+});
+
+refreshBtn.addEventListener("click", function() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    refreshWeather(
+      "lat=" + position.coords.latitude + "&lon=" + position.coords.longitude
+    );
+  });
+});
+
+
 search("New York");
